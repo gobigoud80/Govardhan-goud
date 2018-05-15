@@ -14,6 +14,7 @@ public class Employee {
 	private String mailId;
 	private String passWord;
 	private long phoneNumber;
+	
 	private String employeeRole;
 	private String gender;
 	

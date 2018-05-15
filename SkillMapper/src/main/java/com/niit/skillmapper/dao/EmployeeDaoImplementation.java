@@ -4,15 +4,16 @@ package com.niit.skillmapper.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
+
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.skillmapper.model.Employee;
-@Repository
+@Repository("employeeDao")
 public  class EmployeeDaoImplementation implements EmployeeDao {
 
 	@Autowired
@@ -31,14 +32,14 @@ public  class EmployeeDaoImplementation implements EmployeeDao {
 	@Transactional
 	public boolean updateEmployee(Employee employee) {
 		// TODO Auto-generated method stub
-		 session.update(employee);
+		 sessionFactory.getCurrentSession().update(employee);
 		return true;
 	}
 
 	@Transactional
 	public boolean deleteEmployee(Employee employee) {
 		// TODO Auto-generated method stub
-	       session.delete(employee);
+	       sessionFactory.getCurrentSession().delete(employee);
 		return true;
 		
 	}
@@ -46,7 +47,7 @@ public  class EmployeeDaoImplementation implements EmployeeDao {
 	@Transactional
 	public Employee displayEmployeeDetails(int employeeId) {
 		// TODO Auto-generated method stub
-		Employee employee=(Employee)session.get(Employee.class, employeeId);
+		Employee employee=(Employee)sessionFactory.getCurrentSession().get(Employee.class, employeeId);
 		return employee;
 	}
 
@@ -60,7 +61,7 @@ public  class EmployeeDaoImplementation implements EmployeeDao {
 	@Transactional
 	public List<Employee> displayAllEmployees() {
 		// TODO Auto-generated method stub
-		return (List<Employee>) session.createCriteria(Employee.class).list();
+		return (List<Employee>) sessionFactory.getCurrentSession().createCriteria(Employee.class).list();
 				}
-*/
+
 }

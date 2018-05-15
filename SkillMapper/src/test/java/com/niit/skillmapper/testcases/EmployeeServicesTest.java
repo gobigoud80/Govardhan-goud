@@ -1,5 +1,7 @@
 package com.niit.skillmapper.testcases;
 
+
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -8,9 +10,11 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+
 import com.niit.skillmapper.model.Employee;
 import com.niit.skillmapper.service.EmployeeServices;
 import com.niit.skillmapper.service.EmployeeServicesImplementation;
+
 public class EmployeeServicesTest {
 
 	@Autowired
@@ -24,7 +28,7 @@ public class EmployeeServicesTest {
 		context.refresh();
 		employeeServices=(EmployeeServices)context.getBean("employeeServices");
 		
-		Employee employee=new Employee();
+		/*Employee employee=new Employee();
 		employee.setEmployeeId(1001);
 		employee.setFirstName("Govardhan Goud");
 		employee.setLastName("Goud");
@@ -33,7 +37,7 @@ public class EmployeeServicesTest {
 		employee.setEmployeeRole("Developer");
 		employee.setPhoneNumber(9959282292l);
 		employee.setGender("Male");
-		employeeServices.registerNewEmployee(employee);
+		employeeServices.registerNewEmployee(employee);*/
 		
 	}
 	

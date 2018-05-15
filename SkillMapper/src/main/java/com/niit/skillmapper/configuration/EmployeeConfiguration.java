@@ -14,6 +14,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.skillmapper.model.Employee;
+import com.niit.skillmapper.service.EmployeeServices;
+import com.niit.skillmapper.service.EmployeeServicesImplementation;
 import com.niit.skillmapper.dao.EmployeeDao;
 import com.niit.skillmapper.dao.EmployeeDaoImplementation;
 
@@ -21,7 +23,7 @@ import com.niit.skillmapper.dao.EmployeeDaoImplementation;
 @ComponentScan("com")
 @EnableTransactionManagement
 public class EmployeeConfiguration {
-	@Autowired
+	
 	@Bean(name="dataSource")
     public DataSource getDataSource(){
         BasicDataSource dataSource=new BasicDataSource();
@@ -56,10 +58,10 @@ public class EmployeeConfiguration {
 	return transactionManager;
     }
     @Autowired
-    @Bean("employeeDao")
-    public Employee getEmployee()
+    @Bean("employeeServices")
+    public EmployeeServices getEmployeeService()
     {
-    return new Employee();
+    return new EmployeeServicesImplementation();
     }
   
 }
